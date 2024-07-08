@@ -11,7 +11,7 @@ builder.Services.AddScoped<IBookServices, BookServices>();
 builder.Services.AddScoped<IAuthorServices, AuthorServices>();
 
 var app = builder.Build();
-
+DataInitializer.Seed(app);
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -29,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Book}/{action=Index}/{id?}");
 
 app.Run();

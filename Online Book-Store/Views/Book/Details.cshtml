@@ -1,0 +1,54 @@
+﻿@model IEnumerable<dynamic>
+
+ @* @{
+     ViewData["Title"] = "Details";
+ } *@
+
+<h1>Details</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Title:
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.First().Title
+        </dd>
+        <dt class = "col-sm-2">
+            Image :
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.First().ImgURL" alt="@Model.First().Title" width="100px" height="100px"/>
+        </dd>
+        <dt class = "col-sm-2">
+            Genre :
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.First().Genre
+        </dd>
+        <dt class = "col-sm-2">
+            Price:
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.First().Price
+        </dd>
+        <dt class = "col-sm-2">
+            Publication Date :
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.First().PublicationDate
+        </dd>
+        <dt class = "col-sm-2">
+            Author :
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.First().AuthorName
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.First().BookId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
